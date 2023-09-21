@@ -15,15 +15,43 @@ html {
   box-sizing: inherit;
 }
 
+
+/* Stillingar */
+
+:root {
+  /* Grunn bilið okkar er 1rem == 16px */
+  --font-base-body-px: 16px;
+  --spacing: 1rem;
+
+  /* Hámarksbreidd á efni */
+  --max-width: 900px;
+
+  /* Border breiddir */
+  --border-small: 1px;
+  --border-large: 8px;
+  --border-radius: 6px;
+
+  /* Litir */
+  --color-gold: #ffe7ae;
+  --color-gold-light: #fff1cf;
+  --color-dark: #2f0505;
+  --color-light: #fff9ee;
+
+  /* Letur stillingar */
+  --font-base-size: 1rem;
+  --font-family-base: 'Noto Sans Display', Helvetica, Arial, sans-serif;
+  --font-family-heading: 'Lora', Georgia, serif;
+}
+
 /* hjálpar class sem felur sjónrænt en skjálesarar lesa */
 .sr-only:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
-  height: 1px;
+  height: var(--border-small);
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
+  width: var(--border-small);
 }
 
 /*** Almennt ***/
@@ -32,7 +60,7 @@ html,
 input,
 select,
 button {
-  font-size: 16px;
+  font-size: var(--font-base-body-px);
   font-family: 'Lora', serif;
 }
 
@@ -43,33 +71,50 @@ a {
 h2,
 h3,
 section {
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing);
 }
 
 img {
   max-width: 100%;
 }
 
+.underline-title {
+  border-bottom: 1px solid var(--color-dark); 
+  display: inline-block; 
+  padding-bottom: 1px; 
+  width: 95%;
+}
+
+
 /*** Haus ***/
 
-body > header {
-  padding: 1rem;
-  border-bottom: 8px solid #ffe7ae;
+.wrapper{
+  display: flex;
+  flex-direction: column;
 
-  background-color: #2f0505;
-  color: #fff1cf;
+  gap: var(--spacing);
 
-  text-align: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing);
+  border-bottom: var(--border-large) solid var(--color-gold);
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-dark);
+  color: var(--color-gold-light);
 }
 
 /*** Valmynd ***/
 
-nav {
-  margin-bottom: 1rem;
-  padding: 1rem;
+.nav {
+  margin-bottom: var(--spacing);
+  padding: var(--spacing);
 
-  background-color: #fff9ee;
-  color: #2f0505;
+  background-color: var(--color-light);
+  color: var(--color-dark);
 }
 
 nav ul {
@@ -79,37 +124,37 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-  margin-right: 1rem;
+  margin-right: var(--spacing);
 }
 
 /*** Meginmál ***/
 
-main {
+.main {
   margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  max-width: 900px;
+  padding-left: var(--spacing);
+  padding-right: var(--spacing);
+  max-width: var(--max-width);
 }
 
 /*** Fótur ***/
 
-footer {
-  margin-top: 1rem;
-  padding: 1rem;
-  border-top: 8px solid #ffe7ae;
+.footer {
+  margin-top: var(--spacing);
+  padding: var(--spacing);
+  border-top: var(--border-large) solid var(--color-gold);
 
-  background-color: #2f0505;
-  color: #fff1cf;
+  background-color: var(--color-dark);
+  color: var(--color-gold-light);
 
   text-align: center;
 }
 
-footer > section {
+.footer > section {
   display: inline-block;
   vertical-align: top;
 }
 
-footer ul {
+.footer ul {
   list-style: none;
   text-align: center;
 }
@@ -117,25 +162,36 @@ footer ul {
 /*** Box! ***/
 
 .boxes {
+ 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #ffe7ae;
+  gap: var(--spacing);
+
+  padding-bottom: var(--spacing);
 }
 
 .boxes .box {
-  display: inline-block;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+  background-color: var(--color-gold-light);
 
-  margin-bottom: 1rem;
-  margin-right: 1%;
+  padding-left: var(--spacing);
+  margin-bottom: var(--spacing);
   width: 48%;
+}
 
-  vertical-align: top;
+.boxes .box .buttons {
+  display: flex;
 }
 
 .boxes .box a {
-  display: block;
-  margin-top: 1rem;
+  
+  margin-top: var(--spacing);
   font-weight: bold;
+  margin-bottom: var(--spacing);
 }
 
 /*** Opnunartími ***/
@@ -145,39 +201,131 @@ dt {
 }
 
 dd {
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing);
 }
 
 /*** Matseðill ***/
 
+
+.matsedill-header {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing);
+  border-bottom: var(--border-large) solid var(--color-gold);
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-dark);
+  color: var(--color-gold-light);
+}
+
+.matsedill-nav {
+  margin-bottom: var(--spacing);
+  padding: var(--spacing);
+
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
 table {
-  margin-bottom: 1rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing);
   border-spacing: 0;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
 }
 
 table th,
 table td {
+  font-size: var(--font-base-size);
   padding: 0.5rem;
 }
 
 table tbody tr:nth-child(2n + 1) {
-  background-color: #ffe7ae;
+  background-color: var(--color-gold);
 }
+
+
+.footer-matsedill {
+  margin-top: var(--spacing);
+  padding: var(--spacing);
+  border-top: var(--border-large) solid var(--color-gold);
+
+  background-color: var(--color-dark);
+  color: var(--color-gold-light);
+
+  text-align: center;
+}
+
+.footer-matsedill > section {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.footer-matsedill ul {
+  list-style: none;
+  text-align: center;
+}
+
 
 /*** Pöntunarform ***/
 
+.pontun-wrapper{
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--spacing);
+
+}
+
+.pontun-header {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing);
+  border-bottom: var(--border-large) solid var(--color-gold);
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-dark);
+  color: var(--color-gold-light);
+}
+
+.pontun-nav {
+  margin-bottom: var(--spacing);
+  padding: var(--spacing);
+
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: var(--spacing);
+}
+
+
 fieldset {
-  margin-bottom: 1rem;
-  border: 1px solid #ffe7ae;
-  padding: 1rem;
+  margin-bottom: var(--spacing);
+  border: var(--border-small) solid var(--color-gold);
+  padding: var(--spacing);
 }
 
 fieldset legend {
   font-weight: bold;
 }
 
+fieldset.box {
+  border: var(--border-small) solid var(--color-dark); /* Adjust the border width and style as needed */
+}
+
 fieldset div {
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing);
 }
 
 fieldset div label {
@@ -197,5 +345,74 @@ fieldset input[type='checkbox'] {
 
 form button {
   padding: 0.25rem;
-  border-radius: 6px;
+  border-radius: var(--border-radius);
 }
+
+.pontun-footer {
+  margin-top: var(--spacing);
+  padding: var(--spacing);
+  border-top: var(--border-large) solid var(--color-gold);
+
+  background-color: var(--color-dark);
+  color: var(--color-gold-light);
+
+  text-align: center;
+}
+
+.pontun-footer > section {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.pontun-footer ul {
+  list-style: none;
+  text-align: center;
+}
+
+
+
+
+.um-wrapper{
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--spacing);
+
+}
+
+.um-header {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing);
+  border-bottom: var(--border-large) solid var(--color-gold);
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-dark);
+  color: var(--color-gold-light);
+}
+
+.um-nav {
+  margin-bottom: var(--spacing);
+  padding: var(--spacing);
+
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: var(--spacing);
+}
+
+.um-main {
+  margin: 0 auto;
+  padding-left: var(--spacing);
+  padding-right: var(--spacing);
+  max-width: var(--max-width);
+}
+

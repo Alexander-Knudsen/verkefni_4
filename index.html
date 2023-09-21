@@ -13,14 +13,15 @@
   <meta property="og:image" content="./myndir/sharing.jpg">
 </head>
 <body>
-  <header>
+  <div class="wrapper">
+  <header class="header">
     <h1>Veitingastaðurinn</h1>
     <p>Á Veitingastaðnum hugsum við vel um þig og gefum þér gott að borða.</p>
   </header>
 
   <p class="sr-only"><a href="#efni">Beint í efni</a></p>
 
-  <nav>
+  <nav class="nav">
     <ul>
       <li><strong>Forsíða</strong></li>
       <li><a href="sidur/um.html">Um Veitingastaðinn</a></li>
@@ -29,10 +30,10 @@
     </ul>
   </nav>
 
-  <main id="efni">
+  <main class="main" id="efni">
     <div class="boxes">
       <section class="box">
-        <h3>Opnunartími</h3>
+        <h3 class="underline-title">Opnunartími</h3>
         <dl>
           <dt>Mánudaga til fimmtudaga</dt>
           <dd>09:00–18:00</dd>
@@ -46,19 +47,21 @@
       </section>
 
       <section class="box">
-        <h3>Um okkur</h3>
-        <p>Við erum hresst fólk sem útbýr mat alla daga nema sunnudaga.</p>
+        <h3 class="underline-title">Um okkur</h3>
+        <p style="flex: 1;">Við erum hresst fólk sem útbýr mat alla daga nema sunnudaga.</p>
+        <div class="buttons">
         <a href="./sidur/um.html">Lesa meira um okkur</a>
+      </div>
       </section>
 
       <section class="box">
-        <h3>Matseðill</h3>
+        <h3 class="underline-title">Matseðill</h3>
         <p>Skoðaðu matseðilinn okkar!</p>
         <a href="./sidur/matsedill.html">Skoða matseðilinn</a>
       </section>
 
       <section class="box">
-        <h3>Panta</h3>
+        <h3 class="underline-title">Panta</h3>
         <p>Pantaðu borð eða mat heim til þín!</p>
         <a href="./sidur/pontun.html">Senda inn pöntun</a>
       </section>
@@ -69,25 +72,25 @@
 
       <ul class="boxes">
         <li class="box">
-          <h3>Súpa dagsins</h3>
+          <h3 class="underline-title">Súpa dagsins</h3>
           <p>Daglega ný súpa</p>
           <p>2.100 kr.-</p>
           <a href="./sidur/panta.html">Panta</a>
         </li>
         <li class="box">
-          <h3>Lasagna</h3>
+          <h3 class="underline-title">Lasagna</h3>
           <p>Lasagna með fersku salati</p>
           <p>2.500 kr.-</p>
           <a href="./sidur/panta.html">Panta</a>
         </li>
         <li class="box">
-          <h3>Pizza</h3>
+          <h3 class="underline-title">Pizza</h3>
           <p>Klassísk pizza</p>
           <p>2.000 kr.-</p>
           <a href="./sidur/panta.html">Panta</a>
         </li>
         <li class="box">
-          <h3>Hamborgari</h3>
+          <h3 class="underline-title">Hamborgari</h3>
           <p>Hamborgari með frönskum kartöflum</p>
           <p>2.500 kr.-</p>
           <a href="./sidur/panta.html">Panta</a>
@@ -97,7 +100,7 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="footer">
     <section>
       <h2>Opnunartími</h2>
       <dl>
@@ -125,6 +128,7 @@
       </ul>
     </section>
   </footer>
+</div>
 </body>
 
 </html>
